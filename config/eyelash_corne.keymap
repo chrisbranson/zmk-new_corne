@@ -35,6 +35,13 @@
             #sensor-binding-cells = <0>;
             tap-ms = <0>;
         };
+
+        lighting: lighting {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "LIGHTING";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+        };
     };
 
     combos {
@@ -55,7 +62,7 @@
 &kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T                                &kp UP                &kp Y        &kp U      &kp I      &kp O    &kp P     &kp BSPC
 &td0       &kp A  &kp S  &kp D     &kp F  &kp G                      &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &kp J      &kp K      &kp L    &kp SEMI  &kp SQT
 &kp LCTRL  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp C_MUTE              &kp DOWN              &kp N        &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                         &kp LGUI  &mo 1  &lt 3 SPACE                                                &lt 3 ENTER  &lt 2 DEL  &kp RALT
+                         &kp LGUI  &mo 1  &lt 4 SPACE                                                &lt 4 ENTER  &lt 3 DEL  &kp RALT
             >;
 
             sensor-bindings = <&rsr_vol &rsr_trans>;
@@ -70,7 +77,7 @@
                                          &trans        &trans        &trans                                                                          &kp INS          &kp DEL          &trans
             >;
 
-            sensor-bindings = <&rsr_vol &rsr_trans>;
+            sensor-bindings = <&lighting>, <&rsr_trans>;
         };
 
         raise_layer {
